@@ -1,0 +1,15 @@
+{
+  "name": "nvidia-monitor",
+  "version": "1.0.0",
+  "description": "Вывод nvidia-smi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Radmir Shayakhmetov",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
