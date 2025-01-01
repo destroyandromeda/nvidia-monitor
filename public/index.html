@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVIDIA-SMI Monitor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #1e1e1e;
+      color: #d4d4d4;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      background: #007acc;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #2d2d2d;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: auto;
+    }
+
+    pre {
+      font-family: 'Courier New', Courier, monospace;
+      background: #1e1e1e;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      color: #9cdcfe;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    NVIDIA-SMI Monitor
+  </header>
+  <main>
+    <pre id="output">Connecting...</pre>
+  </main>
+
+  <script>
+    const ws = new WebSocket(`ws://${window.location.host}/ws`);
+    const output = document.getElementById('output');
+
+    ws.onmessage = (event) => {
+      output.textContent = event.data;
+    };
+
+    ws.onerror = (error) => {
+      output.textContent = 'Error connecting to server';
+      console.error(error);
+    };
+
+    ws.onclose = () => {
+      output.textContent = 'Connection closed';
+    };
+  </script>
+</body>
+
+</html>
