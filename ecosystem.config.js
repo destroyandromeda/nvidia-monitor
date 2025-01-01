@@ -1,12 +1,17 @@
+// Подключаем dotenv для использования переменных из .env
+require('dotenv').config();
+
 module.exports = {
   apps: [
     {
-      name: 'nvidia-monitor',
-      script: 'index.js',
-      watch: true,
+      name: 'nvidia-monitor',  // Имя приложения
+      script: './index.js',  // Путь к основному скрипту приложения
+      instances: 1,  // Количество экземпляров приложения (для одного инстанса)
+      autorestart: true,  // Автоматический перезапуск при сбое
+      watch: false,  // Не следить за изменениями в файлах
       env: {
-        PORT: 4000, // Здесь указываем порт
-      },
-    },
-  ],
+        PORT: process.env.PORT || 3000,  // Получаем порт из .env, если он не указан, используем 3000
+      }
+    }
+  ]
 };

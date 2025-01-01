@@ -4,7 +4,7 @@
   "description": "Вывод nvidia-smi",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --name nvidia-monitor --env PORT=4000",
+    "start": "pm2 start ecosystem.config.js",
     "stop": "pm2 stop nvidia-monitor",
     "restart": "pm2 restart nvidia-monitor",
     "delete": "pm2 delete nvidia-monitor"
@@ -12,6 +12,7 @@
   "author": "Radmir Shayakhmetov",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "ws": "^8.18.0"
   }
