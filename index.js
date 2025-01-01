@@ -3,7 +3,8 @@ const { exec } = require('child_process');
 const WebSocket = require('ws');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000; // Задаём порт через переменную окружения
+const PORT = process.env.PORT || 3000;
+const INTERVAL = process.env.INTERVAL || 1000;
 
 const app = express();
 const wss = new WebSocket.Server({ noServer: true });
@@ -24,7 +25,7 @@ wss.on('connection', (ws) => {
       }
       ws.send(stdout);
     });
-  }, 100); // Обновление каждые 100 мс
+  }, INTERVAL); // Обновление каждые 100 мс
 
   ws.on('close', () => {
     console.log('WebSocket client disconnected');
