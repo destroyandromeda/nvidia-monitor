@@ -4,7 +4,10 @@
   "description": "Вывод nvidia-smi",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "pm2 start index.js --name nvidia-monitor --env PORT=4000",
+    "stop": "pm2 stop nvidia-monitor",
+    "restart": "pm2 restart nvidia-monitor",
+    "delete": "pm2 delete nvidia-monitor"
   },
   "author": "Radmir Shayakhmetov",
   "license": "MIT",
