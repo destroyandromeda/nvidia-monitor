@@ -45,32 +45,40 @@
 
 ### Остановка приложения
 
-npm run stop
+```bash
+  npm run stop
+```
 
 ### Перезапуск приложения
 
-npm run restart
+```bash
+  npm run restart
+```
 
 ### Удаление приложения из PM2
 
-npm run delete
+```bash
+  npm run delete
+```
 
-Структура проекта
+Структура проекта:
 
+```text
 /nvidia-monitor
 |-- /public
 |   |-- index.html  (статический HTML)
 |-- index.js    (серверная логика)
 |-- package.json
+```
 
- • /public/index.html — Статическая страница, которая отображает результаты команды nvidia-smi через WebSocket.
- • /index.js — Логика сервера, который запускает команду nvidia-smi и передает данные через WebSocket.
+Технологии:
 
-Технологии
+```text
  • Node.js для создания сервера.
  • Express для обработки HTTP-запросов.
  • WebSocket для передачи данных в реальном времени.
  • PM2 для управления процессом приложения.
+```
 
 ## Лицензия
 
