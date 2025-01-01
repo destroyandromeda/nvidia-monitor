@@ -68,6 +68,7 @@
 |-- /public
 |   |-- index.html  (статический HTML)
 |-- index.js    (серверная логика)
+|-- .../
 |-- package.json
 ```
 
